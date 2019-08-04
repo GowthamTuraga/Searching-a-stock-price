@@ -7,9 +7,20 @@ search
     <table border="1">
         <tr *ngIf = "this.currentStockValue !== undefined">
         <td>{{this.currentStockValue.company}}</td>
-        <td>{{this.currentStockValue.prices}}</td>
-        <td *ngFor="let n of this.currentStockValue.values"> {{n}}</td>
+        
+        <td *ngFor="let n of this.currentStockValue.prices"> {{n}}</td>
         </tr>
 
+    </table>
+</div>
+<div class="pastSearches">
+    Past Searches
+    <table border="1">
+        <tr *ngFor="let pastprice of this.pastcompanyprice">
+            <td>{{pastprice.symbol}}</td>
+            <td>{{pastprice.searchtime}}</td>
+            <td *ngFor="let n of pastprice.prices">{{n}}</td>
+            <td> <button (click) = "this.getStock(pastprice.symbol)">show this</button></td>
+        </tr>
     </table>
 </div>
