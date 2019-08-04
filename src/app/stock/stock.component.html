@@ -1,0 +1,15 @@
+<input type = "text" name = "" value = "" placeholder="Please enter a name" #symbol >
+<button type = "button" name = "button" (click)="this.getStock(symbol.value)">
+search
+</button>
+
+<div class="currentStock">
+    <table border="1">
+        <tr *ngIf = "this.currentStockValue !== undefined">
+        <td>{{this.currentStockValue.company}}</td>
+        <td>{{this.currentStockValue.prices}}</td>
+        <td *ngFor="let n of this.currentStockValue.values"> {{n}}</td>
+        </tr>
+
+    </table>
+</div>
